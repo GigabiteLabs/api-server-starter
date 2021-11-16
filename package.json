@@ -7,6 +7,7 @@
     "start": "node index.js",
     "start:local": "source ./local_vars.sh; nodemon index.js",
     "docker:attach": "./docker/docker-build && ./docker/docker-run-attach",
+    "debug": "nodemon --inspect=0.0.0.0:9229 --trace-uncaught index.js",
     "test": "source ./local_test_vars.sh; nyc --reporter=html --reporter=text mocha --inspect=0.0.0.0:9229; echo \"test run finished. view test results at: ./mochawesome-report/mochawesome.html\"",
     "lint": "eslint '{server,test}/**/*.js'",
     "docs": "jsdoc -c ./docs/jsdoc_conf.json; open ./docs/site/index.html"

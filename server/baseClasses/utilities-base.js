@@ -5,7 +5,7 @@ const log4js = require('log4js')
 const infoLog = new log4js.getLogger(appName)
 infoLog.level = 'info'
 
-class UtilitiesBaseClass {
+class UtilitiesBase {
     constructor(){
     }
 
@@ -14,4 +14,4 @@ class UtilitiesBaseClass {
     }
 }
 
-module.exports = UtilitiesBaseClass
+module.exports = UtilitiesBase

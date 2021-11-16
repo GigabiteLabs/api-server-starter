@@ -1,0 +1,27 @@
+const log = require('../utilities/Logger')('transform')
+module.exports = function omitNullAttr(data) {
+    try {
+      let object = data
+      if (!object) {
+        throw 'no data'
+      }
+      // deletes all: 
+      // - null & undefined properties
+      // - empty dictionaries
+      Object.keys(object).forEach((attribute) => {
+        const value = object[attribute]
+        if ( value == null || value == undefined || JSON.stringify(value) == '{}' || JSON.stringify(value) == '[]' ) {
+          // ignore deletedAt because in 
+          // some cases we need to handle
+          // the omission or non-omission
+          // separately based on query params
+          if (attribute != 'deletedAt') {
+            delete object[attribute]
+          }
+        }
+      })
+      return object
+    } catch (error) {
+      throw error
+    }
+  }

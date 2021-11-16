@@ -1,4 +1,4 @@
-const Base = require('../../baseClasses/endpointBaseClass');
+const Base = require('../lib/endpoint-base');
 const ResponseObject = require('../../handlers/responseHandling/responseObject');
 
 class PublicEndpoints extends Base {
