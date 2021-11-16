@@ -1,0 +1,1 @@
+docker build -t $DOCKER_ACCT_NAME/$DOCKER_APPLICATION_NAME .

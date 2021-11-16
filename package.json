@@ -1,0 +1,64 @@
+{
+  "name": "apiserverstarter",
+  "version": "1.0.0",
+  "description": "A starter application for API servers.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:local": "source ./local_vars.sh; nodemon index.js",
+    "docker:attach": "./docker/docker-build && ./docker/docker-run-attach",
+    "test": "source ./local_test_vars.sh; nyc --reporter=html --reporter=text mocha --inspect=0.0.0.0:9229; echo \"test run finished. view test results at: ./mochawesome-report/mochawesome.html\"",
+    "lint": "eslint '{server,test}/**/*.js'",
+    "docs": "jsdoc -c ./docs/jsdoc_conf.json; open ./docs/site/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GigabiteLabs/StreamCat-Pi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GigabiteLabs/StreamCat-Pi/issues"
+  },
+  "homepage": "https://github.com/GigabiteLabs/StreamCat-Pi#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "log4js": "^6.3.0",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "mocha": "^9.1.3",
+    "mochawesome": "^7.0.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.4.1"
+  },
+  "mocha": {
+    "recursive": true,
+    "extension": [
+      "js"
+    ],
+    "timeout": 30000,
+    "ui": "bdd",
+    "watch-files": [
+      "test-files/**/*.js"
+    ],
+    "watch-ignore": [
+      "test-data",
+      "test-setup",
+      "test-utils"
+    ],
+    "exit": true,
+    "reporter": "mochawesome"
+  }
+}

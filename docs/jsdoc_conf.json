@@ -1,0 +1,21 @@
+{
+    "recurseDepth": 20,    
+    "source": {
+        "include": [ "./README.md", "./test/TESTS.md", "./CONTRIBUTING.md", "./server/" ],
+        "exclude": [ "./node_modules/" ],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/better-docs/typescript"
+    ],
+    "opts": {
+        "encoding": "utf8",
+        "readme": "./README.md",
+        "destination": "./docs/site/",
+        "recurse": true,
+        "verbose": true,
+        "template": "./node_modules/better-docs"
+    }
+}

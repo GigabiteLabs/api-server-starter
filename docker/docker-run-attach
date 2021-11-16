@@ -1,0 +1,7 @@
+docker run -it \
+        -p $PORT:$PORT \
+        -v $PWD:/home/app \
+        -w /home/app \
+        --env "LOG_LEVEL=$LOG_LEVEL" \
+        --env "PORT=$PORT" \
+        $DOCKER_ACCT_NAME/$DOCKER_APPLICATION_NAME
